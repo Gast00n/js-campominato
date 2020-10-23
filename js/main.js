@@ -17,10 +17,49 @@
  * 
  */
 
+//BONUS - I tre livelli di difficoltà
+
+var difficolta = parseInt( prompt('A che livello di difficoltà, vuoi giocare?\n 0 (TEST)\n 1 (Facile)\n 2 (Medio)\n 3 (Difficile)'));
+while (isNaN(difficolta) || difficolta < 0 || difficolta > 3) {
+    tentativo = parseInt( prompt('A che livello di difficoltà, vuoi giocare?\n 1 (Facile)\n 2 (Medio)\n 3 (Difficile)') );
+}
+
+var nBombe = '';
+var nMax = '';
+
+switch (difficolta) {
+    case 0:
+    nBombe = 2;
+    nMax = 10;
+    difficolta = 'Test';
+    break;
+
+    case 1:
+    nBombe = 16;
+    nMax = 100;
+    difficolta = 'Facile';
+    break;
+
+
+
+    case 2:
+    nBombe = 16;
+    nMax = 80;
+    difficolta = 'Medio';
+    break;
+
+
+    case 3:
+    nBombe = 16;
+    nMax = 50;
+    difficolta = 'Difficile';
+    break;
+
+
+}
+
 //  1. Generare x numeri casuali tra min e max
 
-var nBombe = 2;
-var nMax = 10;
 var nMin = 1;
 var counter = 0; //counter dei tentativi andati a buon fine
 
@@ -65,9 +104,11 @@ if (! listabombe.includes(tentativo)) {
 }
 }
 
+
+
+document.getElementById('difficolta').innerHTML = difficolta;
 document.getElementById('nmin').innerHTML = nMin;
 document.getElementById('nmax').innerHTML = nMax;
 document.getElementById('nbombe').innerHTML = nBombe;
 document.getElementById('counter').innerHTML = counter;
 document.getElementById('bombe').innerHTML = listabombe;
-document.getElementById('tentativi').innerHTML = numeriTentati;
