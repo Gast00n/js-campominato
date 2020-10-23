@@ -84,7 +84,6 @@ function generaNumeri(num, min, max) {
 // 2. Chiedere all'utente un numero compreso tra nMin e nMax
 var tentativo = '';
 
-
 for (var i = 0; i < (nMax - nBombe); i++) {
     var numeriTentati = [];
     var tentativo = parseInt( prompt('Inserisci un numero compreso tra ' + nMin + ' e ' + nMax + '!') );
@@ -104,9 +103,14 @@ if (! listabombe.includes(tentativo)) {
 }
 }
 
+if ( (nMax - nBombe) == counter) {
+    alert('Congratulazioni, hai vinto!');
+}
+
 document.getElementById('difficolta').innerHTML = difficolta;
 document.getElementById('nmin').innerHTML = nMin;
 document.getElementById('nmax').innerHTML = nMax;
 document.getElementById('nbombe').innerHTML = nBombe;
 document.getElementById('counter').innerHTML = counter;
 document.getElementById('bombe').innerHTML = listabombe;
+                              
