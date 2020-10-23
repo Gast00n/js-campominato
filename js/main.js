@@ -104,8 +104,6 @@ if (! listabombe.includes(tentativo)) {
 }
 }
 
-
-
 document.getElementById('difficolta').innerHTML = difficolta;
 document.getElementById('nmin').innerHTML = nMin;
 document.getElementById('nmax').innerHTML = nMax;
