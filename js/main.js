@@ -19,12 +19,12 @@
 
 //  1. Generare x numeri casuali tra min e max
 
-var nbombe = 2;
+var nBombe = 2;
 var nMax = 10;
 var nMin = 1;
 var counter = 0; //counter dei tentativi andati a buon fine
 
-listabombe = generaNumeri(nbombe,nMin,nMax);
+listabombe = generaNumeri(nBombe,nMin,nMax);
 
 // Funzione generaNumeri()
 
@@ -46,26 +46,28 @@ function generaNumeri(num, min, max) {
 var tentativo = '';
 
 
-for (var i = 0; i < nMax; i++) {
+for (var i = 0; i < (nMax - nBombe); i++) {
+    var numeriTentati = [];
     var tentativo = parseInt( prompt('Inserisci un numero compreso tra ' + nMin + ' e ' + nMax + '!') );
-    while (isNaN(tentativo) || tentativo < nMin || tentativo > nMax) {
+    while (isNaN(tentativo) || tentativo < nMin || tentativo > nMax || numeriTentati.includes(tentativo)) {
         tentativo = parseInt( prompt('Inserisci un numero, VALIDO, compreso tra ' + nMin + ' e ' + nMax + '!') );
     }
 
 
 // 3. Controllare che il numero NON sia uguale ad una delle bombe!
-    var numeriTentati [];
 if (! listabombe.includes(tentativo)) {
     alert('Nessuna Bomba qui! Continua!');
     numeriTentati.push(tentativo);
     counter++;
 } else {
-     
     alert('Bomba innescata! Hai perso!'); 
     break; 
 }
 }
 
-console.log(tentativo);
-console.log(listabombe);
-console.log('Il numero di tentativi è: ', counter);
+document.getElementById('nmin').innerHTML = nMin;
+document.getElementById('nmax').innerHTML = nMax;
+document.getElementById('nbombe').innerHTML = nBombe;
+document.getElementById('counter').innerHTML = counter;
+document.getElementById('bombe').innerHTML = listabombe;
+document.getElementById('tentativi').innerHTML = numeriTentati;
